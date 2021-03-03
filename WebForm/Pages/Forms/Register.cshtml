@@ -1,0 +1,19 @@
+﻿@page
+@model WebForm.Pages.Forms.RegisterModel
+@{
+}
+<h3>Registration Form</h3>
+<form method="post">
+    <div asp-validation-summary="All" style="color:red"></div>
+    <input asp-for="Person.LastName" placeholder="Last Name" /><br /><br />
+    <input asp-for="Person.FirstName" placeholder="First Name" /><br /><br />
+    <input asp-for="Person.Gender" placeholder="Gender" /><br /><br />
+    <input asp-for="Person.ContactNo" placeholder="Contact Number" /><br /><br />
+    <input asp-for="Person.Email" placeholder="Email Address" /><br /><br />
+    <input asp-for="Person.UserName" placeholder="Username" /><br /><br />
+    <input asp-for="Person.Password" placeholder="Password" /><br /><br />
+
+    <button type="submit">Submit</button>
+
+
+</form>
