@@ -2,18 +2,40 @@
 @model WebForm.Pages.Forms.RegisterModel
 @{
 }
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<div class="col-sm-6">
 <h3>Registration Form</h3>
 <form method="post">
     <div asp-validation-summary="All" style="color:red"></div>
-    <input asp-for="Person.LastName" placeholder="Last Name" /><br /><br />
-    <input asp-for="Person.FirstName" placeholder="First Name" /><br /><br />
-    <input asp-for="Person.Gender" placeholder="Gender" /><br /><br />
-    <input asp-for="Person.ContactNo" placeholder="Contact Number" /><br /><br />
-    <input asp-for="Person.Email" placeholder="Email Address" /><br /><br />
-    <input asp-for="Person.UserName" placeholder="Username" /><br /><br />
-    <input asp-for="Person.Password" placeholder="Password" /><br /><br />
-
-    <button type="submit">Submit</button>
+    <div class="form-group">
+        <input class="form-control" asp-for="Person.LastName" placeholder="Last Name" />
+    </div>
+    <div class="form-group">
+        <input class="form-control" asp-for="Person.FirstName" placeholder="First Name" />
+    </div>
+    <div class="form-group">
+        <input class="form-control" asp-for="Person.Gender" placeholder="Gender" />
+    </div>
+    <div class="form-group">
+        <input class="form-control" asp-for="Person.ContactNo" placeholder="Contact Number" />
+    </div>
+    <div class="form-group">
+        <input class="form-control" asp-for="Person.Email" placeholder="Email Address" />
+    </div>
+    <div class="form-group">
+        <input class="form-control" asp-for="Person.UserName" placeholder="Username" />
+    </div>
+    <div class="form-group">
+        <input class="form-control" asp-for="Person.Password" placeholder="Password" />
+    </div>
+  
+    <center>
+        <button type="submit" class="btn btn-success col-sm-6">Submit</button>
+    </center>
+    
 
 
 </form>
+    </div>
