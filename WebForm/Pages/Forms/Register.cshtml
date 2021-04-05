@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/site.css" />
-<div class="col-sm-6">
+<div class="justify-content-center">
 <h3>Registration Form</h3>
 <form method="post">
     <div asp-validation-summary="All" style="color:red"></div>
@@ -16,7 +16,12 @@
         <input class="form-control" asp-for="Person.FirstName" placeholder="First Name" />
     </div>
     <div class="form-group">
-        <input class="form-control" asp-for="Person.Gender" placeholder="Gender" />
+        <select class="form-control" asp-for="Person.Gender" >
+            <option selected>Choose your sex: </option>
+            <option value="Male">MALE</option>
+            <option value="Female">FEMALE</option>
+        </select>
+        
     </div>
     <div class="form-group">
         <input class="form-control" asp-for="Person.ContactNo" placeholder="Contact Number" />
@@ -28,14 +33,40 @@
         <input class="form-control" asp-for="Person.UserName" placeholder="Username" />
     </div>
     <div class="form-group">
-        <input class="form-control" asp-for="Person.Password" placeholder="Password" />
+        <input type="password" class="form-control" asp-for="Person.Password" placeholder="Password" />
     </div>
-  
     <center>
         <button type="submit" class="btn btn-success col-sm-6">Submit</button>
     </center>
-    
-
-
 </form>
     </div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Contact No.</th>
+            <th>Actions</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Persons) 
+        {
+         <tr>
+             <td>@item.LastName</td>
+             <td>@item.FirstName</td>
+             <td>@item.Gender</td>
+             <td>@item.Email</td>
+             <td>@item.UserName</td>
+             <td>@item.ContactNo</td>
+             <td><a asp-page="Edit" asp-route-id="@item.ID" type="button" class="btn btn-success">Edit</a> | 
+             <a asp-page="Register" asp-page-handler="Delete" asp-route-id="@item.ID" type="button" class="btn btn-danger">Delete</a></td>
+         </tr>   
+        }
+    </tbody>
+</table>

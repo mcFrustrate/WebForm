@@ -8,6 +8,9 @@ namespace WebForm.Models
 {
     public class PersonModel
     {
+        [Key]
+        public int ID { get; set; }
+
 
         [RegularExpression(@"^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$", ErrorMessage = "Last Name Invalid"), Required, StringLength(20)]
         public string LastName { get; set; }
@@ -19,7 +22,7 @@ namespace WebForm.Models
         [RegularExpression(@"^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$", ErrorMessage = "Gender Invalid"), Required, StringLength(6)]
         public string Gender { get; set; }
 
-        [StringLength(11)]
+        [StringLength(11), Required]
         public string ContactNo { get; set; }
         
         [RegularExpression("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$", ErrorMessage = "Must be a valid email"), Required]
